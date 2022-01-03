@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { Link, useHistory } from "react-router-dom";
-import styles from './App.css';
+import Styles from './App.css';
 import Axios from "axios";
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
           </div>
 
           <div className="login-form-group">
-            <Field name="password" className="form-field" placeHolder="Senha" />
+            <Field name="password"  type="password" className="form-field" placeHolder="Senha" />
             <ErrorMessage
               component="span"
               name="password"

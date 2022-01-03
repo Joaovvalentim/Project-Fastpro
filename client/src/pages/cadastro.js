@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { Link, useHistory } from "react-router-dom";
-import styles from './cadastro.css';
+import styles from './App.css';
 import Axios from "axios";
 
 
