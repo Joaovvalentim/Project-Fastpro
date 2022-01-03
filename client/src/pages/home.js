@@ -1,8 +1,24 @@
 import React from "react";
 import Darth from "./darth.jpg"
 import styles from "./home.css";
+import api from './api';
 
+const fetchPeople =() =>{
+    const getPeopleUrl = id => `https://swapi.dev/api/people/${id}`
 
+    const peoplePromises = [];
+
+    for( let i = 1; i<=83; i++){
+        peoplePromises.push(fetch(getPeopleUrl(i)).then(response => response.json()))
+        
+    }
+    Promise.all(peoplePromises)
+    .then(people =>{
+        console.log(people)
+    })
+}
+
+fetchPeople();
 function Home() {
     return (
 
