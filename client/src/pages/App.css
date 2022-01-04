@@ -1,8 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.title{
+    font-size: 100px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bg{
+    background: url('./bg.jpg')  center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.9;
+}
+.row-form{
+    display: flex;
+    height: 100vh;
+}
 .container {
     width: 200px;
     height: max-content;
     margin: auto;
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.7);
+	color        : #000;
     padding: 20px 15px;
     margin-top: 120px;
     border-radius: 7px;
@@ -40,5 +64,5 @@ button {
 }
 .buttons{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }

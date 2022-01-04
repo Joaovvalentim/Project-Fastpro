@@ -15,6 +15,19 @@ const db = mysql.createPool({
 
 app.use(express.json());
 app.use(cors());
+const corsOptions ={
+   origin:'*', 
+   credentials:true,
+   optionSuccessStatus:200,
+}
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://swapi.dev/api/people/");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+app.use(cors({
+    credentials: true,
+  }));
 
 // Abre Rotas de captura de dados do cadastro do usuario
 app.post("/cadastro", (req, res) => {
@@ -59,11 +72,11 @@ app.post("/login", (req, res) => {
                 if (result) {
                     res.status(200).send({ msg: "Sucess" })
                 } else {
-                    res.status(401).send({ msg: "Senha está incorreta" })
+                    res.status(400).send({ msg: "Senha está incorreta" })
                 }
             })
         } else {
-            res.status(401).send({ msg: "Email não encontrado!" })
+            res.status(401).send({ msg: "Email está incorreto!" })
         }
     }
     );

@@ -44,60 +44,70 @@ function Cadastro() {
     const renderScreenRegister = () => {
         history.push("/cadastro");
     };
+    const renderScreenVoltar = () => {
+        history.push("/");
+    };
     return (
-        <div className="container">
-            <h1>Cadastro</h1>
-            <Formik initialValues={{}} onSubmit={handleClickCadastro} validationSchema={validationCadastro}>
-                <Form className="login-form">
+        <div className="bg">
+            <div className="row-form">
+                <div className="container">
+                    <h1>Cadastro</h1>
+                    <Formik initialValues={{}} onSubmit={handleClickCadastro} validationSchema={validationCadastro}>
+                        <Form className="login-form">
 
-                    <div className="login-form-group">
-                        <Field name="nome" className="form-field" placeHolder="Nome" />
-                        <ErrorMessage
-                            component="span"
-                            name="nome"
-                            className="form-error"
-                        />
-                    </div>
+                            <div className="login-form-group">
+                                <Field name="nome" className="form-field" placeHolder="Nome" />
+                                <ErrorMessage
+                                    component="span"
+                                    name="nome"
+                                    className="form-error"
+                                />
+                            </div>
 
-                    <div className="login-form-group">
-                        <Field name="email" className="form-field" placeHolder="Email" />
-                        <ErrorMessage
-                            component="span"
-                            name="email"
-                            className="form-error"
-                        />
-                    </div>
+                            <div className="login-form-group">
+                                <Field name="email" className="form-field" placeHolder="Email" />
+                                <ErrorMessage
+                                    component="span"
+                                    name="email"
+                                    className="form-error"
+                                />
+                            </div>
 
-                    <div className="login-form-group">
-                        <Field name="telefone" className="form-field" placeHolder="Telefone" />
-                        <ErrorMessage
-                            component="span"
-                            name="telefone"
-                            className="form-error"
-                        />
-                    </div>
+                            <div className="login-form-group">
+                                <Field name="telefone" className="form-field" placeHolder="Telefone" />
+                                <ErrorMessage
+                                    component="span"
+                                    name="telefone"
+                                    className="form-error"
+                                />
+                            </div>
 
-                    <div className="login-form-group">
-                        <Field name="password" className="form-field" placeHolder="Senha" />
-                        <ErrorMessage
-                            component="span"
-                            name="password"
-                            className="form-error"
-                        />
-                    </div>
+                            <div className="login-form-group">
+                                <Field name="password" className="form-field" type="password" placeHolder="Senha" />
+                                <ErrorMessage
+                                    component="span"
+                                    name="password"
+                                    className="form-error"
+                                />
+                            </div>
 
-                    <div className="login-form-group">
-                        <Field name="confirmPassword" className="form-field" placeHolder="Repetir Senha" />
-                        <ErrorMessage
-                            component="span"
-                            name="confirmPassword"
-                            className="form-error"
-                        />
-                    </div>
-                    <button className="button" type="submit">Cadastrar</button>
+                            <div className="login-form-group">
+                                <Field name="confirmPassword" className="form-field" type="password" placeHolder="Repetir Senha" />
+                                <ErrorMessage
+                                    component="span"
+                                    name="confirmPassword"
+                                    className="form-error"
+                                />
+                            </div>
+                            <div className="buttons">
+                                <button className="button" type="submit">Cadastrar</button>
+                                <button className="button" onClick={() => renderScreenVoltar()}>Voltar</button>
+                            </div>
 
-                </Form>
-            </Formik>
+                        </Form>
+                    </Formik>
+                </div>
+            </div>
         </div>
     )
 };

@@ -1,8 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { Link, useHistory } from "react-router-dom";
-import Styles from './App.css';
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
 function App() {
@@ -12,13 +11,14 @@ function App() {
       email: values.email,
       password: values.password,
     }).then((response) => {
-      console.log(response)
       if (response.status === 200) {
-        history.push("/home");
-      } else {
-        history.push("/");
+        history.push("/home"); 
+      } 
+       else {
+        console.log("oi")
       }
     });
+
   };
   const validationLogin = yup.object().shape({
     email: yup
@@ -36,34 +36,39 @@ function App() {
     history.push("/cadastro");
   };
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <Formik initialValues={{}} onSubmit={handleClickLogin} validationSchema={validationLogin}>
-        <Form className="login-form">
-          <div className="login-form-group">
-            <Field name="email" className="form-field" placeHolder="Email" />
-            <ErrorMessage
-              component="span"
-              name="email"
-              className="form-error"
-            />
-          </div>
+    <div className="bg">
+      <h1 className="title">STAR WARS</h1>
+      <div className="row-form">
+        <div className="container">
+          <h1>Login</h1>
+          <Formik initialValues={{}} onSubmit={handleClickLogin} validationSchema={validationLogin}>
+            <Form className="login-form">
+              <div className="login-form-group">
+                <Field name="email" className="form-field" placeHolder="Email" />
+                <ErrorMessage
+                  component="span"
+                  name="email"
+                  className="form-error"
+                />
+              </div>
 
-          <div className="login-form-group">
-            <Field name="password"  type="password" className="form-field" placeHolder="Senha" />
-            <ErrorMessage
-              component="span"
-              name="password"
-              className="form-error"
-            />
-          </div>
-          <div className="buttons">
-            <button className="button" type="submit">Login</button>
-            <button className="button" type="submit" onClick={() => renderScreenRegister()}>Cadastro</button>
-          </div>
-        </Form>
-      </Formik>
-    </div >
+              <div className="login-form-group">
+                <Field name="password" type="password" className="form-field" placeHolder="Senha" />
+                <ErrorMessage
+                  component="span"
+                  name="password"
+                  className="form-error"
+                />
+              </div>
+              <div className="buttons">
+                <button className="button" type="submit">Login</button>
+                <button className="button" type="submit" onClick={() => renderScreenRegister()}>Cadastro</button>
+              </div>
+            </Form>
+          </Formik>
+        </div >
+      </div>
+    </div>
   );
 }
 
